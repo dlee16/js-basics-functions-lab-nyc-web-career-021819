@@ -20,16 +20,16 @@ function distanceTravelledInFeet(ft1, ft2){
   return response;
 }
 
-function calculatesFarePrice(start, destination){
-  let response;
-    if (distanceTravelledInFeet(start, destination) <= 400){
-    response = 0;
-  } else if (distanceTravelledInFeet(start, destination) > 400 && distanceTravelledInFeet(start, destination) < 2000){
-    response = ((distanceTravelledInFeet(start, destination) - 400) * .02);
-  } else if (distanceTravelledInFeet(start, destination) > 2000 && distanceTravelledInFeet(start, destination) <= 2500){
-    response = 25;
-  } else if (distanceTravelledInFeet(start, destination) > 2500) {
-    response = "cannot travel that far"
-  }
-  return response;
+function calculatesFarePrice(start, destination) {
+    distance = distanceTravelledInFeet(start, destination)
+    switch (true) {
+        case distance <= 400:
+            return 0
+        case distance > 400 && distance <= 2000:
+            return (distance - 400) * .02
+        case distance > 2000 && distance <=2500:
+            return 25
+        default:
+            return "cannot travel that far"
+    }
 }
